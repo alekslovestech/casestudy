@@ -18,5 +18,11 @@ public class MetadataService : IMetadataService
         // Query the CMS to get the asset by its ID
 
         // Find and return the asset by its ID
+        const _filePath = "../Metadata/AssetMetadata.json";
+        using (var stream = new FileStream(_filePath, FileMode.Open, FileAccess.Read))
+        {
+            var assets = await JsonSerializer.DeserializeAsync<List<Asset>>(stream);
+            return assets?.FirstOrDefault(asset => asset.AssetId == assetId);
+        }
     }
 }

@@ -1,5 +1,5 @@
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/metadata")]
 public class MetadataController : ControllerBase
 {
     private readonly IMetadataService _metadataService;
