@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  content-distribution:
+    build:
+      context: ./src/ContentDistributionPlatform
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+      - cache
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=mydb;User=sa;Password=Your_password123;
+
+db:
+  #reference the DB / data repository
+
+cache:
+  #reference the cache service
+
+  
